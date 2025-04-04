@@ -1,35 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Character Counter</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #121212;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Character counter</title>
-</head>
-<body>
+      #circle {
+        display: flex;
+        justify-content: begin;
+        align-items: flex-start;
+      }
 
-  Analyze your text in real-time.
+      .header-container {
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+      }
 
-  Start typing here… (or paste your text)
+      #sun {
+        display: flex;
+        justify-content: end;
+        align-items: flex-start;
+      }
 
-  Exclude Spaces
-  Set Character Limit
+      .checkbox {
+        justify-content: begin;
+      }
+      .container {
+        max-width: 800px;
+        margin: auto;
+        align-items: center;
+      }
+      .header {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .subtext {
+        font-size: 14px;
+        color: #bbb;
+        margin-bottom: 20px;
+      }
 
-  Approx. reading time: <!-- Insert number --> minutes
+      .checkbox-2 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .text-box {
+        width: 990;
+        height: 200;
+        background-color: #1e1e1e;
+        color: white;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: left;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      .metrics {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+        
+      }
 
-  <!-- Insert number -->
-  Total Characters
+      .gallery-image {
+        position: absolute;
+        right: -50px;
+        top: 0px;
+        bottom: 0;
+        object-fit: contain;
+        background-position: center center;
+      }
 
-  <!-- Insert number -->
-  Word Count
+      .metric-box {
+        position: relative;
+        padding: 20px;
+        overflow: hidden;
+        border-radius: 10px;
+        width: 200px;
+        text-align: center;
+        font-weight: bold;
+      }
+      .purple {
+        background: #a259ff;
+      }
+      .orange {
+        background: #fca311;
+      }
+      .red {
+        background: #e63946;
+      }
+      .progress-section {
+        margin-top: 20px;
+        text-align: left;
+      }
+      .progress-bar {
+        background-color: #333;
+        border-radius: 5px;
+        height: 10px;
+        margin-top: 5px;
+        width: 100%;
+        overflow: hidden;
+      }
+      .progress-fill {
+        height: 100%;
+        background-color: #a259ff;
+        width: 50%;
+      }
 
-  <!-- Insert number -->
-  Sentence Count
+      .simple-bar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header-container">
+        <div id="circle">
+          <img src="assets/images/logo-dark-theme.svg" alt="" />
+        </div>
+        <div id="sun"><img src="assets/images/icon-sun.svg" alt="" /></div>
+      </div>
 
-  Letter Density
-  No characters found. Start typing to see letter density.
-
-</body>
+      <div class="header">Analyze your text in real-time.</div>
+      <div class="subtext">Character Counter</div>
+      <div class="text-box">
+        Design is the silent ambassador of your brand. Simplicity is key to
+        effective communication, creating clarity in every interaction. A great
+        design transforms complex ideas into elegant solutions, making them easy
+        to understand. It blends aesthetics and functionality seamlessly.
+      </div>
+      <div class="checkbox-2">
+        <span class="flex">
+            <label class="checkbox"
+          ><input type="checkbox" id="myCheckbox" />Exclude Spaces</label
+        >
+        <label class="checkbox"
+          ><input type="checkbox" id="myCheckbox" />Set Character Limit</label
+        >
+        </span>
+        <p>Approx.reading time: <1 minute</p>
+      </div>
+      <div class="metrics">
+        <div class="metric-box purple">
+          278 <br />
+          Total Characters
+          <img
+            src="./assets/images/pattern-character-count.svg"
+            class="gallery-image"
+            alt="Image 1"
+            aria-hidden="true"
+          />
+        </div>
+        <div class="metric-box orange">
+          39 <br />
+          Word Count
+          <img
+            src="./assets/images/pattern-word-count.svg"
+            class="gallery-image"
+            alt="Image 2"
+            aria-hidden="true"
+          />
+        </div>
+        <div class="metric-box red">
+          04 <br />
+          Sentence Count
+          <img
+            src="./assets/images/pattern-sentence-count.svg"
+            class="gallery-image"
+            alt="Image 3"
+            aria-hidden="true"
+          />
+        </div>
+      </div>
+      <div class="progress-section">
+        <div>Letter Density</div>
+        <div class="simple-bar">
+          <div>E</div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 16%"></div>
+          </div>
+          <div>40(16.06%)</div>
+        </div>
+        <div class="simple-bar">
+            <div>I</div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 16%"></div>
+            </div>
+            <div>29(11.65%)</div>
+          </div>
+          <div class="simple-bar">
+            <div>T</div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 16%"></div>
+            </div>
+            <div>28(11.24%)</div>
+          </div>
+          <div class="simple-bar">
+            <div>O</div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 16%"></div>
+            </div>
+            <div>22(8.84%)</div>
+          </div>
+          <div class="simple-bar">
+            <div>N</div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 16%"></div>
+            </div>
+            <div>21(8.43%)</div>
+          </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
