@@ -8,125 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-      body {
-        font-family: "Inter", sans-serif;
-        background-color: #121212;
-        color: white;
-        text-align: center;
-        padding: 20px;
-      }
-
-      #circle {
-        display: flex;
-        justify-content: begin;
-        align-items: flex-start;
-      }
-
-      .header-container {
-        text-align: center;
-        display: flex;
-        justify-content: space-between;
-      }
-
-      #sun {
-        display: flex;
-        justify-content: end;
-        align-items: flex-start;
-      }
-
-      .checkbox {
-        justify-content: begin;
-      }
-      .container {
-        max-width: 800px;
-        margin: auto;
-        align-items: center;
-      }
-      .header {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-      .subtext {
-        font-size: 14px;
-        color: #bbb;
-        margin-bottom: 20px;
-      }
-
-      .checkbox-2 {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .text-box {
-        width: 990;
-        height: 200;
-        background-color: #1e1e1e;
-        color: white;
-        border-radius: 8px;
-        padding: 15px;
-        text-align: left;
-        font-size: 14px;
-        line-height: 1.5;
-      }
-      .metrics {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 20px;
-        
-      }
-
-      .gallery-image {
-        position: absolute;
-        right: -50px;
-        top: 0px;
-        bottom: 0;
-        object-fit: contain;
-        background-position: center center;
-      }
-
-      .metric-box {
-        position: relative;
-        padding: 20px;
-        overflow: hidden;
-        border-radius: 10px;
-        width: 200px;
-        text-align: center;
-        font-weight: bold;
-      }
-      .purple {
-        background: #a259ff;
-      }
-      .orange {
-        background: #fca311;
-      }
-      .red {
-        background: #e63946;
-      }
-      .progress-section {
-        margin-top: 20px;
-        text-align: left;
-      }
-      .progress-bar {
-        background-color: #333;
-        border-radius: 5px;
-        height: 10px;
-        margin-top: 5px;
-        width: 100%;
-        overflow: hidden;
-      }
-      .progress-fill {
-        height: 100%;
-        background-color: #a259ff;
-        width: 50%;
-      }
-
-      .simple-bar {
-        display: flex;
-        flex-direction: row;
-        align-items: center;      }
-    </style>
+     <link rel="stylesheet" href="styles2.css">
   </head>
   <body>
     <div class="container">
@@ -134,10 +16,10 @@
         <div id="circle">
           <img src="assets/images/logo-dark-theme.svg" alt="" />
         </div>
-        <div id="sun"><img src="assets/images/icon-sun.svg" alt="" /></div>
+        <div id="moon"><img src="assets/images/icon-moon.svg" alt="" /></div>
       </div>
 
-      <div class="header">Analyze your text in real-time.</div>
+      <div class="header">Analyze your text<br> in real-time.</div>
       <div class="subtext">Character Counter</div>
       <div class="text-box">
         Design is the silent ambassador of your brand. Simplicity is key to
@@ -159,7 +41,8 @@
       <div class="metrics">
         <div class="metric-box purple">
           278 <br />
-          Total Characters
+          <span class="text2"> Total Characters</span>
+         
           <img
             src="./assets/images/pattern-character-count.svg"
             class="gallery-image"
@@ -169,7 +52,7 @@
         </div>
         <div class="metric-box orange">
           39 <br />
-          Word Count
+          <span class="text2"> Word Count</span>
           <img
             src="./assets/images/pattern-word-count.svg"
             class="gallery-image"
@@ -179,7 +62,7 @@
         </div>
         <div class="metric-box red">
           04 <br />
-          Sentence Count
+          <span class="text2"> Sentence Count</span>
           <img
             src="./assets/images/pattern-sentence-count.svg"
             class="gallery-image"
@@ -227,6 +110,6 @@
           </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="script2.js"></script>
   </body>
-</html>
+</html> 
