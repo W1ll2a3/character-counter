@@ -1,0 +1,124 @@
+@import "./components/nav.scss";
+@import "./components/hero.scss";
+@import "./components/form.scss";
+@import "./components/card.scss";
+@import "./components/infograph.scss";
+
+/* Dark Theme */
+$dark-primary: #12131a;
+$dark-primary-900: #12131a;
+$dark-primary-800: #21222c;
+$dark-primary-700: #2a2b37;
+$dark-primary-500: #404254;
+
+$dark-text-primary: #f2f2f7;
+$dark-text-secondary: #e4e4ef;
+
+/* Light Theme */
+$light-primary: #ffffff;
+$light-primary-200: #e4e4ef;
+$light-primary-100: #f2f2f7;
+
+$light-text-primary: #12131a;
+$light-text-secondary: #2a2b37;
+
+/* Accent Colors  */
+$purple-400: #d3a0fa;
+$purple-500: #c27cf8;
+$yellow-500: #ff9f00;
+$orange-500: #fe8159;
+$orange-600: #da3701;
+
+:root {
+  --primary: #{$light-primary};
+  --primary-text: #{$light-text-primary};
+  --toggle-button: #{$light-primary-200};
+  --textfield-border: #{$light-primary-200};
+  --textfield-bg: #{$light-primary-100};
+  --textfield-placeholder: #{$dark-primary-700};
+  --checkbox-border: #{$dark-primary-900};
+  --checked-bg: #{$purple-400};
+  --purple-light: #{$purple-400};
+  --purple-dark: #{$purple-500};
+  --orange-light: #{$orange-500};
+  --orange-dark: #{$orange-600};
+  --yellow: #{$yellow-500};
+  --card-text: #{$dark-primary};
+  --bar-bg: #{$light-primary-100};
+  --error: #{$orange-600};
+  --empty-message: #404254;
+}
+
+[data-theme="dark"] {
+  --primary: #{$dark-primary};
+  --primary-text: #{$dark-text-primary};
+  --secondary-text: #{$dark-text-secondary};
+  --toggle-button: #{$dark-primary-700};
+  --checkbox-border: #{$light-primary-200};
+  --textfield-bg: #{$dark-primary-800};
+  --textfield-placeholder: #{$light-primary-200};
+  --textfield-border: #{$dark-primary-700};
+  --checkbox-border: #{$light-primary-200};
+  --bar-bg: #{$dark-primary-800};
+  --error: #{$orange-500};
+  --empty-message: #{$dark-text-secondary};
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../assets/fonts/DM_Sans//DMSans-VariableFont_opsz\,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../assets/fonts/DM_Sans/DMSans-Italic-VariableFont_opsz\,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary);
+  color: var(--primary-text);
+  font-family: "DM Sans", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 990px;
+  margin: 0 auto 64px auto;
+}
+
+.logo {
+  width: 180px;
+  height: 30px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.letter-density__item.is-collapsed {
+  display: none;
+}
