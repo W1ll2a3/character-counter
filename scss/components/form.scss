@@ -1,0 +1,128 @@
+.form-area {
+  width: 100%;
+  padding: 0px 16px;
+  box-sizing: border-box;
+
+  form > div {
+    width: 100%;
+  }
+
+  textarea {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid var(--textfield-border);
+    border-radius: 12px;
+    background-color: var(--textfield-bg);
+    padding: 16px 16px 0 16px;
+    resize: none;
+    height: 200px;
+    font-size: 20px;
+    font-family: "DM Sans", sans-serif;
+    color: var(--secondary-text);
+
+    &::placeholder {
+      font-family: "DM Sans", sans-serif;
+      color: var(--textfield-placeholder);
+    }
+
+    &:focus {
+      border: 2px solid var(--purple-dark);
+      outline: none;
+      box-shadow: 0 0 5px var(--purple-light);
+    }
+  }
+
+  &__textarea-limit-exceeded {
+    border: 1px solid var(--error) !important;
+    box-shadow: 0 0 5px var(--orange-600) !important;
+    outline: none;
+  }
+
+  &__checkboxes {
+    margin-top: 16px;
+    color: var(--secondary-text);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &--group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      @media (min-width: 768px) {
+        flex-direction: row;
+      }
+
+      & > div {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        input[type="checkbox"] {
+          appearance: none;
+          -webkit-appearance: none;
+          width: 16px;
+          height: 16px;
+          border: 1px solid var(--checkbox-border);
+          border-radius: 4px;
+          position: relative;
+          vertical-align: middle;
+          cursor: pointer;
+
+          &:checked {
+            background-color: var(--checked-bg);
+            border-color: transparent;
+            position: relative;
+
+            background-image: url("/assets/images/icon-check.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+
+            &::after {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__warning-msg {
+    display: none;
+  }
+
+  &__warning-msg-active {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 12px;
+    color: var(--error);
+  }
+}
+
+.limit-input {
+  display: none;
+}
+
+.limit-input-active {
+  display: block !important;
+  padding: 4px 12px;
+  width: 55px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid var(--textfield-border);
+  background-color: transparent;
+  color: var(--primary-text);
+}

@@ -1,0 +1,431 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+@media (min-width: 768px) {
+  .nav {
+    padding: 16px 32px;
+  }
+}
+@media (min-width: 1024px) {
+  .nav {
+    padding: 32px;
+  }
+}
+.nav__logo img {
+  width: 180px;
+  height: 30px;
+  object-fit: contain;
+}
+@media (min-width: 768px) {
+  .nav__logo img {
+    width: 245px;
+    height: 40px;
+  }
+}
+.nav__logo--dark {
+  display: none;
+}
+.nav__logo--light {
+  display: block;
+}
+.nav__button {
+  all: unset;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--toggle-button);
+}
+.nav__button img {
+  width: 20px;
+  height: 20px;
+}
+.nav__button .icon-sun {
+  display: none;
+}
+.nav__button .icon-moon {
+  display: block;
+}
+@media (min-width: 768px) {
+  .nav__button {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+  }
+  .nav__button img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+[data-theme=dark] .nav__logo--dark {
+  display: block;
+}
+[data-theme=dark] .nav__logo--light {
+  display: none;
+}
+[data-theme=dark] .nav__button .icon-sun {
+  display: block;
+}
+[data-theme=dark] .nav__button .icon-moon {
+  display: none;
+}
+
+.hero {
+  padding: 40px 16px;
+}
+@media (min-width: 1024px) {
+  .hero {
+    padding: 48px 16px;
+  }
+}
+.hero__title {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .hero__title {
+    font-size: 64px;
+    max-width: 510px;
+    margin: auto;
+  }
+}
+
+.form-area {
+  width: 100%;
+  padding: 0px 16px;
+  box-sizing: border-box;
+}
+.form-area form > div {
+  width: 100%;
+}
+.form-area textarea {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid var(--textfield-border);
+  border-radius: 12px;
+  background-color: var(--textfield-bg);
+  padding: 16px 16px 0 16px;
+  resize: none;
+  height: 200px;
+  font-size: 20px;
+  font-family: "DM Sans", sans-serif;
+  color: var(--secondary-text);
+}
+.form-area textarea::placeholder {
+  font-family: "DM Sans", sans-serif;
+  color: var(--textfield-placeholder);
+}
+.form-area textarea:focus {
+  border: 2px solid var(--purple-dark);
+  outline: none;
+  box-shadow: 0 0 5px var(--purple-light);
+}
+.form-area__textarea-limit-exceeded {
+  border: 1px solid var(--error) !important;
+  box-shadow: 0 0 5px var(--orange-600) !important;
+  outline: none;
+}
+.form-area__checkboxes {
+  margin-top: 16px;
+  color: var(--secondary-text);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+@media (min-width: 768px) {
+  .form-area__checkboxes {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.form-area__checkboxes--group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+@media (min-width: 768px) {
+  .form-area__checkboxes--group {
+    flex-direction: row;
+  }
+}
+.form-area__checkboxes--group > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.form-area__checkboxes--group > div input[type=checkbox] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--checkbox-border);
+  border-radius: 4px;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.form-area__checkboxes--group > div input[type=checkbox]:checked {
+  background-color: var(--checked-bg);
+  border-color: transparent;
+  position: relative;
+  background-image: url("/assets/images/icon-check.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.form-area__checkboxes--group > div input[type=checkbox]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.form-area__warning-msg {
+  display: none;
+}
+.form-area__warning-msg-active {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 12px;
+  color: var(--error);
+}
+
+.limit-input {
+  display: none;
+}
+
+.limit-input-active {
+  display: block !important;
+  padding: 4px 12px;
+  width: 55px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid var(--textfield-border);
+  background-color: transparent;
+  color: var(--primary-text);
+}
+
+.cards {
+  padding: 40px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media (min-width: 768px) {
+  .cards {
+    flex-direction: row;
+  }
+}
+.cards__card {
+  padding: 20px;
+  border-radius: 12px;
+  color: var(--card-text);
+  position: relative;
+  overflow: hidden;
+  height: 130px;
+}
+@media (min-width: 768px) {
+  .cards__card {
+    flex: 1 1 0;
+    height: 150px;
+  }
+}
+.cards__card p {
+  font-size: 40px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+@media (min-width: 768px) {
+  .cards__card p {
+    font-size: 64px;
+  }
+}
+.cards__card h3 {
+  font-size: 20px;
+  font-weight: normal;
+}
+.cards__card--characters {
+  background-color: var(--purple-light);
+}
+.cards__card--characters img {
+  position: absolute;
+  right: -50px;
+  top: 0px;
+  bottom: 0;
+  object-fit: contain;
+  background-position: center center;
+}
+.cards__card--words {
+  background-color: var(--yellow);
+}
+.cards__card--words img {
+  position: absolute;
+  right: -50px;
+  top: 0px;
+  bottom: 0;
+  object-fit: contain;
+  background-position: center center;
+}
+.cards__card--sentences {
+  background-color: var(--orange-light);
+}
+.cards__card--sentences img {
+  position: absolute;
+  right: -50px;
+  top: 0px;
+  bottom: 0;
+  object-fit: contain;
+  background-position: center center;
+}
+
+.letter-density {
+  padding: 0px 16px;
+}
+.letter-density__empty-message {
+  color: var(--empty-message);
+}
+.letter-density__title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.letter-density__items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.letter-density__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.letter-density__letter {
+  font-size: 16px;
+  width: 20px;
+}
+.letter-density__bar {
+  flex: 1;
+  height: 12px;
+  background-color: var(--bar-bg);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.letter-density__fill {
+  height: 100%;
+  background-color: var(--purple-light);
+  border-radius: 4px;
+}
+.letter-density__count {
+  font-size: 0.9rem;
+  color: var(--secondary-text);
+}
+.letter-density__more {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 20px 0 0 0;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--secondary-text);
+}
+
+/* Dark Theme */
+/* Light Theme */
+/* Accent Colors  */
+:root {
+  --primary: #ffffff;
+  --primary-text: #12131a;
+  --toggle-button: #e4e4ef;
+  --textfield-border: #e4e4ef;
+  --textfield-bg: #f2f2f7;
+  --textfield-placeholder: #2a2b37;
+  --checkbox-border: #12131a;
+  --checked-bg: #d3a0fa;
+  --purple-light: #d3a0fa;
+  --purple-dark: #c27cf8;
+  --orange-light: #fe8159;
+  --orange-dark: #da3701;
+  --yellow: #ff9f00;
+  --card-text: #12131a;
+  --bar-bg: #f2f2f7;
+  --error: #da3701;
+  --empty-message: #404254;
+}
+
+[data-theme=dark] {
+  --primary: #12131a;
+  --primary-text: #f2f2f7;
+  --secondary-text: #e4e4ef;
+  --toggle-button: #2a2b37;
+  --checkbox-border: #e4e4ef;
+  --textfield-bg: #21222c;
+  --textfield-placeholder: #e4e4ef;
+  --textfield-border: #2a2b37;
+  --checkbox-border: #e4e4ef;
+  --bar-bg: #21222c;
+  --error: #fe8159;
+  --empty-message: #e4e4ef;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../assets/fonts/DM_Sans//DMSans-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("../assets/fonts/DM_Sans/DMSans-Italic-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary);
+  color: var(--primary-text);
+  font-family: "DM Sans", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 990px;
+  margin: 0 auto 64px auto;
+}
+
+.logo {
+  width: 180px;
+  height: 30px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+/*# sourceMappingURL=style.css.map */
