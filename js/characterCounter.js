@@ -41,8 +41,31 @@ const characterLimitInput = document.querySelector(".limit-input");
 function characterCount() {
   let text = textarea.value;
   const excludeSpaces = exludesSpacesCheckBox.checked;
-  const count = countCharacters(text, excludeSpaces);
+  const limitActive = characterLimitCheckBox.checked;
+  const limitValue = parseInt(characterLimitInput.value);
 
+  // Enforce character limit if active
+  if (limitActive && !isNaN(limitValue) && limitValue > 0) {
+    if (excludeSpaces) {
+      // Count characters excluding spaces
+      let charCount = 0;
+      let truncatedText = '';
+      for (let i = 0; i < text.length; i++) {
+        if (text[i] !== ' ') {
+          if (charCount >= limitValue) break;
+          charCount++;
+        }
+        truncatedText += text[i];
+      }
+      text = truncatedText;
+    } else {
+      // Simple truncation if spaces are included
+      text = text.slice(0, limitValue);
+    }
+    textarea.value = text;
+  }
+
+  const count = countCharacters(text, excludeSpaces);
   characterCountElement.textContent = count < 10 ? `0${count}` : count;
   checkCharacterLimit(count);
 }
@@ -89,7 +112,7 @@ function toggleEmptyMessage() {
   }
 }
 
-function checkCharacterLimit(currentCount) {
+function checkCharacterLimit(count) {
   const limitActive = characterLimitCheckBox.checked;
   const limitValue = parseInt(characterLimitInput.value);
 
@@ -99,11 +122,14 @@ function checkCharacterLimit(currentCount) {
     return;
   }
 
-  if (currentCount > limitValue) {
+  if (count > limitValue) {
     warningMessage.classList.add("form-area__warning-msg-active");
     textarea.classList.add("form-area__textarea-limit-exceeded");
-
-    warningMessage.innerHTML = `<img src="../assets/images/icon-info.svg" alt="warning" class="form-area__warning-icon" /> Limit reached! Your text exceeds ${limitValue} characters.`;
+    warningMessage.textContent = `Character limit! You have used ${count} out of ${limitValue} characters.`;
+  } else if (count >= Math.floor(limitValue * 0.9)) {
+    warningMessage.classList.add("form-area__warning-msg-active");
+    textarea.classList.remove("form-area__textarea-limit-exceeded");
+    warningMessage.textContent = `Character limit! You have used ${count} out of ${limitValue} characters.`;
   } else {
     warningMessage.classList.remove("form-area__warning-msg-active");
     textarea.classList.remove("form-area__textarea-limit-exceeded");
