@@ -1,130 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A real-time text analyzer that counts characters with customizable options">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="./css/styles.css">
-  <title>Character counter</title>
-</head>
-<body>
-  <!-- Header -->
-  <header class="app-header">
-    <div class="app-logo">
-      <img src="./assets/images/logo-light-theme.svg" alt="Character Counter Logo">
-    </div>
-    <nav class="theme-toggle">
-      <button aria-label="Toggle dark mode">
-        <img src="./assets/images/icon-moon.svg" alt="Switch to dark mode">
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <title>Frontend Mentor | Character counter</title>
+  </head>
+  <body class="container">
+    <!-- navbar component -->
+    <nav class="nav">
+      <!-- dark mode logo -->
+      <a href="/" class="nav__logo nav__logo--dark">
+        <img
+          src="./assets/images/logo-dark-theme.svg"
+          alt="Dark Counter Character Logo"
+        />
+      </a>
+      <!-- light mode logo -->
+      <a href="/" class="nav__logo nav__logo--light">
+        <img
+          src="./assets/images/logo-light-theme.svg"
+          class="Light Counter Character Logo"
+        />
+      </a>
+
+      <button id="theme-toggle" class="nav__button">
+        <img
+          src="./assets/images/icon-sun.svg"
+          class="icon-sun"
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          src="./assets/images/icon-moon.svg"
+          class="icon-moon"
+          alt=""
+          aria-hidden="true"
+        />
       </button>
     </nav>
-  </header>
-
-  <!-- Main Content -->
-  <main>
-    <section class="app-hero">
-      <h1>Analyze your text in real-time.</h1>
-    </section>
-
-    <section class="text-analysis-section">
-      <form class="text-analysis-form">
-        <div class="text-input-wrapper">
-          <textarea 
-            name="text" 
-            id="text" 
-            placeholder="Start typing here… (or paste your text)"
-            aria-label="Text input area"
-          ></textarea>
-
-          <div class="error-alert" id="limit-error">
-            <span class="alert-icon">
-            <img src="./assets/images/info-circle.svg" alt="a warning icon">
-            </span> Limit reached! Your text exceeds the limited characters.
+    <!-- main page -->
+    <main>
+      <header class="hero" role="banner" aria-labelledby="hero-title">
+        <h1 class="hero__title" id="hero-title">
+          Analyze your text in real-time.
+        </h1>
+      </header>
+      <!-- user input fields -->
+      <section class="form-area" aria-labelledby="form-section">
+        <form>
+          <div>
+            <label for="text-input" id="form-section">
+              <textarea
+                id="textareaField"
+                placeholder="Start texting here...(or paste your text)"
+                aria-describedby="textarea-help"
+                class=""
+              ></textarea>
+            </label>
+            <small id="textarea-help" class="visually-hidden"
+              >You can paste or type your text here for analysis.</small
+            >
           </div>
+          <p id="warning-msg" class="form-area__warning-msg"></p>
+
+          <div
+            class="form-area__checkboxes"
+            role="group"
+            aria-labelledby="checkboxes-group"
+          >
+            <div class="form-area__checkboxes--group">
+              <div>
+                <input type="checkbox" id="exclude-spaces" />
+                <label for="exclude-spaces">Exclude Spaces</label>
+              </div>
+              <div>
+                <input type="checkbox" id="character-limit" />
+                <label for="character-limit"> Set Character Limit</label>
+              </div>
+              <div>
+                <input type="text" class="limit-input" />
+              </div>
+            </div>
+            <p id="reading-time">Approx. reading time: &lt;0 minute</p>
+          </div>
+        </form>
+      </section>
+      <!-- cards -->
+      <section class="cards" aria-labelledby="text-analysis-summary">
+        <h2 id="text-analysis-summary" class="visually-hidden">
+          Text Analysis Summary
+        </h2>
+        <div
+          class="cards__card cards__card--characters"
+          aria-labelledby="characters-title"
+        >
+          <p
+            id="character-count"
+            class="card__count"
+            aria-label="278 total characters"
+          >
+            00
+          </p>
+          <h3 id="characters-title">Total Characters</h3>
+          <img
+            src="./assets/images/pattern-character-count.svg"
+            alt=""
+            aria-hidden="true"
+          />
         </div>
-        
-        <div class="analysis-options">
-          <div class="analysis-options-group">
-            <div class="option">
-              <input type="checkbox" id="exclude-spaces" name="exclude-spaces">
-              <label for="exclude-spaces">Exclude Spaces</label>
-            </div>
-            <div class="option">
-              <input type="checkbox" id="character-limit" name="character-limit">
-              <label for="character-limit">Set Character Limit</label>
-              <input 
-                type="number" 
-                id="character-limit-value" 
-                name="character-limit-value" 
-                min="1" 
-                placeholder="Enter limit"
-              >
-            </div>
-          </div>
-          <p id="reading-time">Approx. reading time: &lt;1 min</p>
+        <div
+          class="cards__card cards__card--words"
+          aria-labelledby="words-title"
+        >
+          <p id="word-count" aria-label="39 words">00</p>
+          <h3 id="words-title">Word Count</h3>
+          <img
+            src="./assets/images/pattern-word-count.svg"
+            alt=""
+            aria-hidden="true"
+          />
         </div>
-      </form>
-    </section>
-
-    <section>
-      <div class="stats" aria-labelledby="stats-heading">
-        <div class="stats-cards">
-          <div class="stat-card stat-card--characters">
-            <div class="stat-card-icon">
-              <img
-                src="./assets/images/pattern-character-count.svg"
-                alt="a character count icon"
-                aria-hidden="true"
-              />
-            </div>
-            <p class="stat-card-number">00</p>
-            <!-- total characters -->
-            <p class="stat-card-label"><span id="total-char-label">Total Characters</span></p>
-          </div>
-
-          <div class="stat-card stat-card--words">
-            <div class="stat-card-icon">
-              <img
-                src="./assets/images/pattern-word-count.svg"
-                alt="a word count icon"
-                aria-hidden="true"
-              />
-            </div>
-            <p class="stat-card-number">00</p>
-            <p class="stat-card-label">Word Count</p>
-          </div>
-
-          <div class="stat-card stat-card--sentences">
-            <div class="stat-card-icon">
-              <img
-                src="./assets/images/pattern-sentence-count.svg"
-                alt="a sentence count icon"
-                aria-hidden="true"
-              />
-            </div>
-            <p class="stat-card-number">00</p>
-            <p class="stat-card-label">Sentence Count</p>
-          </div>
+        <div
+          class="cards__card cards__card--sentences"
+          aria-labelledby="sentences-title"
+        >
+          <p id="sentence-count" aria-label="4 sentences">00</p>
+          <h3 id="sentences-title">Sentence Count</h3>
+          <img
+            src="./assets/images/pattern-sentence-count.svg"
+            alt=""
+            aria-hidden="true"
+          />
         </div>
-      </div>
-
-      <div class="letter-density" aria-labelledby="density-heading">
-        <h2 id="density-heading">Letter Density</h2>
-        
-        <div class="empty-state-message">
-          <p>No characters found. Start typing to see letter density.</p>
+      </section>
+      <!-- info graphics -->
+      <section class="letter-density">
+        <h2 class="letter-density__title">Letter Density</h2>
+        <p id="empty-message" class="letter-density__empty-message">
+          No characters found. Start typing to see letter density.
+        </p>
+        <div
+          id="letter-density-container"
+          class="letter-density__items is-hidden"
+        >
+          <!-- Display Letter Density Analytics-->
         </div>
-      </div>
-      <div class="expand-button">
-        <p>See more</p>
-        <span>&gt;</span>
-      </div>
-    </section>
-  </main>
-  <script src="./js/main.js" type="module"></script>
-</body>
+
+        <button id="collapse-btn" class="letter-density__more is-hidden">
+          See more &gt;
+          <svg
+            width="12"
+            height="7"
+            viewBox="0 0 12 7"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5.71875 6.375L1.09375 1.78125C0.9375 1.65625 0.9375 1.40625 1.09375 1.25L1.71875 0.65625C1.875 0.5 2.09375 0.5 2.25 0.65625L6 4.34375L9.71875 0.65625C9.875 0.5 10.125 0.5 10.25 0.65625L10.875 1.25C11.0312 1.40625 11.0312 1.65625 10.875 1.78125L6.25 6.375C6.09375 6.53125 5.875 6.53125 5.71875 6.375Z"
+              fill="#E4E4EF"
+            />
+          </svg>
+        </button>
+      </section>
+    </main>
+    <script type="module" src="./js/characterCounter.js"></script>
+  </body>
 </html>

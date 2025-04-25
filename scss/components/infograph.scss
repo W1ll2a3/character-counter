@@ -1,0 +1,60 @@
+.letter-density {
+  padding: 0px 16px;
+
+  &__empty-message {
+    color: var(--empty-message);
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  &__letter {
+    font-size: 16px;
+    width: 20px;
+  }
+
+  &__bar {
+    flex: 1;
+    height: 12px;
+    background-color: var(--bar-bg);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__fill {
+    height: 100%;
+    background-color: var(--purple-light);
+    border-radius: 4px;
+  }
+
+  &__count {
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+  }
+
+  &__more {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--secondary-text);
+  }
+}
