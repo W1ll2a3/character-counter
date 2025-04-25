@@ -427,7 +427,7 @@ h1 {
 }
 
 .text-input-wrapper.limit-exceeded textarea {
-  outline: 2px solid red;
+  outline: 2px solid red !important;
 }
 
 .empty-state-message {
@@ -439,4 +439,38 @@ h1 {
 
 .character-limit-remaining {
   margin-top: 10px;
+}
+
+.form-area__warning-msg {
+  display: none;
+  color: var(--orange-500);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.form-area__warning-msg-active {
+  display: block;
+}
+
+.form-area__textarea-limit-exceeded {
+  border: 2px solid red !important;
+  box-shadow: 0 0 0 2px red !important;
+  outline: none !important;
+}
+
+.form-area__textarea-limit-exceeded:focus {
+  border: 2px solid red !important;
+  box-shadow: 0 0 0 2px red !important;
+  outline: none !important;
+}
+
+textarea {
+  border: 1px solid var(--neutral-600);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+textarea:focus {
+  border-color: var(--blue-500);
+  box-shadow: 0 0 0 1px var(--blue-500);
+  outline: none;
 }
